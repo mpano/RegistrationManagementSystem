@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2022 1:19:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="RegistrationManagementSystem.Course" table="course" catalog="learning" optimistic-lock="version">
+        <id name="CId" type="string">
+            <column name="C_ID" length="5" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="person" class="RegistrationManagementSystem.Person" fetch="select">
+            <column name="Lecturer_ID" length="5" />
+        </many-to-one>
+        <property name="CName" type="string">
+            <column name="C_Name" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

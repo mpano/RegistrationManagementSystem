@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2022 1:19:15 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="RegistrationManagementSystem.Person" table="person" catalog="learning" optimistic-lock="version">
+        <id name="PId" type="string">
+            <column name="P_ID" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="PName" type="string">
+            <column name="P_Name" length="30" />
+        </property>
+        <property name="PType" type="string">
+            <column name="P_Type" length="15" />
+        </property>
+        <property name="courseId" type="string">
+            <column name="Course_ID" length="5" />
+        </property>
+        <set name="courses" table="course" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Lecturer_ID" length="5" />
+            </key>
+            <one-to-many class="RegistrationManagementSystem.Course" />
+        </set>
+    </class>
+</hibernate-mapping>
